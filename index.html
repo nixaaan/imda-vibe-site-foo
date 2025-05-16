@@ -5,82 +5,205 @@
   <title>PAWS Watch</title>
   <!-- Tailwind CSS CDN (add this if you want to use Tailwind classes) -->
   <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: {
+              light: '#ede9fe', // light purple
+              DEFAULT: '#8b5cf6', // main purple
+              dark: '#6d28d9', // dark purple
+            },
+            accent: {
+              light: '#f3e8ff', // light accent
+              DEFAULT: '#a78bfa', // accent purple
+              dark: '#7c3aed', // dark accent
+            },
+            background: {
+              DEFAULT: '#faf5ff', // soft background
+            }
+          }
+        }
+      }
+    }
+  </script>
 </head>
-<body class="min-h-screen bg-gradient-to-br from-pink-100 to-purple-200 text-purple-900">
+<body class="min-h-screen bg-gradient-to-br from-primary-light via-background-DEFAULT to-primary-dark text-primary-dark">
 
   <!-- Navbar -->
-  <nav class="flex justify-between items-center px-8 py-4 bg-white shadow-md sticky top-0 z-50">
+  <nav class="flex justify-between items-center px-8 py-4 bg-white/90 shadow-md sticky top-0 z-50 backdrop-blur">
     <div class="flex items-center space-x-4">
-      <img src="/logo.webp.webp" alt="PAWS Watch Logo" width="50" height="50" />
-      <span class="text-2xl font-bold text-purple-700">PAWS Watch</span>
+      <img src="/logo.webp" alt="PAWS Watch Logo" width="50" height="50" class="cursor-pointer" onclick="window.scrollTo({top: 0, behavior: 'smooth'});" />
+      <span class="text-2xl font-bold text-primary-dark">PAWS Watch</span>
     </div>
     <div class="space-x-4">
-      <button class="bg-transparent hover:bg-purple-100 text-purple-700 font-semibold py-2 px-4 rounded">Home</button>
-      <button class="bg-transparent hover:bg-purple-100 text-purple-700 font-semibold py-2 px-4 rounded">About</button>
-      <button class="bg-transparent hover:bg-purple-100 text-purple-700 font-semibold py-2 px-4 rounded">Report Abuse</button>
-      <button class="bg-transparent hover:bg-purple-100 text-purple-700 font-semibold py-2 px-4 rounded">Adopt/Foster</button>
-      <button class="bg-transparent hover:bg-purple-100 text-purple-700 font-semibold py-2 px-4 rounded">Get Involved</button>
-      <button class="bg-transparent hover:bg-purple-100 text-purple-700 font-semibold py-2 px-4 rounded">Contact</button>
+      <button class="bg-primary-dark text-white font-semibold py-2 px-4 rounded transition hover:bg-primary-dark/80" onclick="const pawGuardSection = document.getElementById('pawguard-app'); const y = pawGuardSection.getBoundingClientRect().top + window.pageYOffset - 80; window.scrollTo({top: y, behavior: 'smooth'});">PawGuard App</button>
+      <button class="bg-transparent hover:bg-primary-light text-primary-dark font-semibold py-2 px-4 rounded transition" onclick="const aboutSection = document.getElementById('about-us'); const y = aboutSection.getBoundingClientRect().top + window.pageYOffset - 80; window.scrollTo({top: y, behavior: 'smooth'});">About</button>
+      <button class="bg-transparent text-primary-dark font-semibold py-2 px-4 rounded transition opacity-60 cursor-not-allowed" title="Coming soon" disabled>Adopt/Foster <span class='ml-1 text-xs'>(coming soon)</span></button>
+      <button class="bg-transparent hover:bg-primary-light text-primary-dark font-semibold py-2 px-4 rounded transition" onclick="const giSection = document.getElementById('get-involved'); const y = giSection.getBoundingClientRect().top + window.pageYOffset - 80; window.scrollTo({top: y, behavior: 'smooth'});">Get Involved</button>
+      <button class="bg-transparent hover:bg-primary-light text-primary-dark font-semibold py-2 px-4 rounded transition">Contact</button>
     </div>
   </nav>
 
   <!-- Hero Section -->
-  <section class="text-center py-20 bg-purple-100 px-4">
-    <h1 class="text-5xl font-bold mb-4 text-purple-800">Every Paw Counts</h1>
+  <section class="text-center py-20 bg-gradient-to-br from-background-DEFAULT via-primary-light to-accent-light px-4">
+    <h1 class="text-5xl font-bold mb-4 text-primary-dark">Every Paw Counts</h1>
     <p class="text-lg mb-6 max-w-2xl mx-auto">
       Help us protect, care for, and empower our stray cats through community, compassion, and action.
     </p>
     <div class="space-x-4">
-      <button class="bg-purple-600 text-white hover:bg-purple-700 py-3 px-8 rounded-lg text-lg">Report Abuse</button>
-      <button class="border border-purple-600 text-purple-700 py-3 px-8 rounded-lg text-lg bg-white hover:bg-purple-50">Join as Volunteer</button>
+      <button class="bg-primary-dark text-white hover:bg-primary DEFAULT py-3 px-8 rounded-lg text-lg transition">Report Abuse</button>
+      <button class="border border-primary-dark text-primary-dark py-3 px-8 rounded-lg text-lg bg-white hover:bg-primary-light transition">Join as Volunteer</button>
     </div>
   </section>
 
   <!-- Core Values -->
   <section class="py-16 px-6 md:px-20 grid grid-cols-1 md:grid-cols-4 gap-8 text-center">
-    <div class="bg-white shadow-sm rounded-lg">
+    <div class="bg-white shadow-sm rounded-lg border border-primary-light hover:shadow-lg transition">
       <div class="p-6">
         <div class="text-4xl mb-2">🛡️</div>
-        <h3 class="text-xl font-semibold mb-1 text-purple-700">Protect</h3>
-        <p class="text-sm text-gray-600">Patrols, watch & education</p>
+        <h3 class="text-xl font-semibold mb-1 text-primary-dark">Protect</h3>
+        <p class="text-sm text-primary DEFAULT">Patrols, watch & education</p>
       </div>
     </div>
-    <div class="bg-white shadow-sm rounded-lg">
+    <div class="bg-white shadow-sm rounded-lg border border-primary-light hover:shadow-lg transition">
       <div class="p-6">
         <div class="text-4xl mb-2">📢</div>
-        <h3 class="text-xl font-semibold mb-1 text-purple-700">Advocate</h3>
-        <p class="text-sm text-gray-600">Report abuse & outreach</p>
+        <h3 class="text-xl font-semibold mb-1 text-primary-dark">Advocate</h3>
+        <p class="text-sm text-primary DEFAULT">Report abuse & outreach</p>
       </div>
     </div>
-    <div class="bg-white shadow-sm rounded-lg">
+    <div class="bg-white shadow-sm rounded-lg border border-primary-light hover:shadow-lg transition">
       <div class="p-6">
         <div class="text-4xl mb-2">🏥</div>
-        <h3 class="text-xl font-semibold mb-1 text-purple-700">Welfare</h3>
-        <p class="text-sm text-gray-600">Food, shelter & care</p>
+        <h3 class="text-xl font-semibold mb-1 text-primary-dark">Welfare</h3>
+        <p class="text-sm text-primary DEFAULT">Food, shelter & care</p>
       </div>
     </div>
-    <div class="bg-white shadow-sm rounded-lg">
+    <div class="bg-white shadow-sm rounded-lg border border-primary-light hover:shadow-lg transition">
       <div class="p-6">
         <div class="text-4xl mb-2">✂️</div>
-        <h3 class="text-xl font-semibold mb-1 text-purple-700">Sterilize</h3>
-        <p class="text-sm text-gray-600">TNR with local vets</p>
+        <h3 class="text-xl font-semibold mb-1 text-primary-dark">Sterilize</h3>
+        <p class="text-sm text-primary DEFAULT">TNR with local vets</p>
       </div>
     </div>
   </section>
 
-  <!-- Report Abuse Form (Preview) -->
-  <section class="py-16 px-6 md:px-40 bg-white">
-    <h2 class="text-3xl font-bold text-center mb-8 text-purple-800">Report Abuse</h2>
+  <!-- PawGuard App Section -->
+  <section id="pawguard-app" class="py-16 px-6 md:px-40 bg-white/90 rounded-xl shadow-inner mx-2 md:mx-auto my-8">
+    <h2 class="text-4xl font-bold text-center mb-10 text-primary-dark">PawGuard App</h2>
+    <div class="relative w-full max-w-5xl mx-auto">
+      <div id="pawguard-carousel" class="flex overflow-hidden rounded-xl shadow-lg bg-accent-light/60">
+        <!-- Slide 1 -->
+        <div class="flex flex-col md:flex-row w-full flex-shrink-0" style="display: block;" id="pawguard-slide-1">
+          <div class="md:w-1/2 flex items-center justify-center bg-primary-light p-6">
+            <img src="/feature 1.png" alt="Instant Abuse Reporting" class="rounded-lg max-h-72 object-cover w-full" />
+          </div>
+          <div class="md:w-1/2 p-8 flex flex-col justify-center">
+            <h3 class="text-2xl font-bold mb-2 text-primary-dark">1. Instant Abuse Reporting with Geo-Tag & Media Upload</h3>
+            <ul class="mb-2 list-disc pl-5 text-primary-dark">
+              <li>Snap a photo or video</li>
+              <li>Pin the exact location via GPS</li>
+              <li>Select from categories (abuse, neglect, injury, dead animal)</li>
+              <li>Add optional notes</li>
+            </ul>
+            <p class="mb-2 text-primary-dark">Speeds up intervention by notifying AVS, caregivers, or local responders. Builds a database of hotspots. Ensures credibility with timestamped, geo-verified evidence.</p>
+            <ul class="text-xs text-primary-dark list-disc pl-5">
+              <li>Option to report anonymously</li>
+              <li>“Emergency” toggle for severe cruelty cases</li>
+            </ul>
+          </div>
+        </div>
+        <!-- Slide 2 -->
+        <div class="flex flex-col md:flex-row w-full flex-shrink-0 hidden" id="pawguard-slide-2">
+          <div class="md:w-1/2 flex items-center justify-center bg-primary-light p-6">
+            <img src="/Can-I-adopt-a-stray-cat-in-Singapore.jpg" alt="Caregiver Zone Map" class="rounded-lg max-h-72 object-cover w-full" />
+          </div>
+          <div class="md:w-1/2 p-8 flex flex-col justify-center">
+            <h3 class="text-2xl font-bold mb-2 text-primary-dark">2. Caregiver Zone Map & Activity Tracker</h3>
+            <ul class="mb-2 list-disc pl-5 text-primary-dark">
+              <li>Registered caregiver zones</li>
+              <li>Community cat clusters and feeding areas</li>
+              <li>Ongoing TNRM activities</li>
+              <li>Volunteer shifts and patrolling status</li>
+            </ul>
+            <p class="mb-2 text-primary-dark">Helps volunteers avoid overlap, find mentorship, and lets partners monitor efforts. Optional: "Ping caregiver" and stats dashboard.</p>
+          </div>
+        </div>
+        <!-- Slide 3 -->
+        <div class="flex flex-col md:flex-row w-full flex-shrink-0 hidden" id="pawguard-slide-3">
+          <div class="md:w-1/2 flex items-center justify-center bg-primary-light p-6">
+            <img src="/logo.webp" alt="Real-Time Alerts" class="rounded-lg max-h-72 object-cover w-full" />
+          </div>
+          <div class="md:w-1/2 p-8 flex flex-col justify-center">
+            <h3 class="text-2xl font-bold mb-2 text-primary-dark">3. Real-Time Alerts & Community Safety Broadcasts</h3>
+            <ul class="mb-2 list-disc pl-5 text-primary-dark">
+              <li>Ongoing abuse investigations or serial threats</li>
+              <li>Missing/injured cats needing urgent help</li>
+              <li>Volunteer needs and community reminders</li>
+            </ul>
+            <p class="mb-2 text-primary-dark">Keeps the community informed, engaged, and vigilant. Prevents panic by channeling verified updates. Optional: push notification customization and “Respond Now” for volunteers.</p>
+          </div>
+        </div>
+      </div>
+      <!-- Carousel Controls -->
+      <div class="flex justify-center mt-4 space-x-2">
+        <button onclick="showPawguardSlide(1)" class="w-3 h-3 rounded-full bg-primary-light border-2 border-primary-dark" id="pawguard-dot-1"></button>
+        <button onclick="showPawguardSlide(2)" class="w-3 h-3 rounded-full bg-primary-light border-2 border-primary-dark" id="pawguard-dot-2"></button>
+        <button onclick="showPawguardSlide(3)" class="w-3 h-3 rounded-full bg-primary-light border-2 border-primary-dark" id="pawguard-dot-3"></button>
+      </div>
+    </div>
+    <script>
+      function showPawguardSlide(n) {
+        for (let i = 1; i <= 3; i++) {
+          document.getElementById('pawguard-slide-' + i).style.display = (i === n) ? 'flex' : 'none';
+          document.getElementById('pawguard-dot-' + i).classList.toggle('bg-primary-dark', i === n);
+        }
+      }
+      showPawguardSlide(1);
+    </script>
+  </section>
+
+  <!-- About Us Section -->
+  <section id="about-us" class="py-16 px-6 md:px-40 flex flex-col md:flex-row items-center gap-10 bg-accent-light/60 rounded-xl shadow-inner mx-2 md:mx-auto my-8">
+    <div class="flex-1 flex justify-center mb-8 md:mb-0">
+      <img src="/Can-I-adopt-a-stray-cat-in-Singapore.jpg" alt="Cat in Singapore" class="rounded-xl shadow-lg max-h-80 object-cover" />
+    </div>
+    <div class="flex-1">
+      <h2 class="text-4xl font-bold mb-4 text-primary-dark">About Us</h2>
+      <p class="text-lg text-primary-dark mb-4">
+        At PAWS Watch, we believe every cat deserves love, safety, and a place to belong—even if that place is a quiet corner of our neighborhood.
+      </p>
+      <p class="mb-4">
+        We’re a non-profit made up of people who care deeply about Singapore’s community cats. Whether it’s feeding them in the early morning, getting them sterilised, or helping when something goes wrong, we’re here to support both the cats and the caregivers who look after them. Our goal is to make Singapore a kinder, safer place for stray cats and the people who care about them.
+      </p>
+      <p class="mb-4">
+        We do this by training and supporting community cat caregivers, the quiet heroes who care for cats every day. Through our Caregiver Accreditation Programme, our PawGuard app, and community outreach, we equip caregivers with the knowledge, tools, and recognition they need to protect stray cats responsibly and confidently.
+      </p>
+      <p class="mb-4">
+        But PAWS Watch is about more than just cats. It’s about neighbours looking out for one another, turning compassion into action, and creating shared spaces where kindness matters. Whether you’re caring for cats, donating supplies, reporting abuse, or simply learning how to help, there’s a place for you with us.
+      </p>
+      <p class="font-semibold text-primary-dark">
+        Because when our cats are safe, our communities feel whole.
+      </p>
+    </div>
+  </section>
+
+  <!-- Get Involved Form (Preview) -->
+  <section id="get-involved" class="py-16 px-6 md:px-40 bg-white/90 rounded-xl shadow-inner mx-2 md:mx-auto my-8">
+    <h2 class="text-3xl font-bold text-center mb-8 text-primary-dark">Get Involved</h2>
     <form class="space-y-4">
-      <input class="w-full px-4 py-2 border border-gray-300 rounded" placeholder="Location (e.g. Block 123, Tampines)" />
-      <textarea class="w-full px-4 py-2 border border-gray-300 rounded" placeholder="Description of the incident..." rows="4"></textarea>
-      <input type="file" class="w-full" />
-      <button type="submit" class="bg-purple-600 text-white hover:bg-purple-700 py-2 px-6 rounded">Submit Report</button>
+      <input class="w-full px-4 py-2 border border-primary-light rounded focus:ring-2 focus:ring-primary DEFAULT" placeholder="Full Name" required />
+      <input class="w-full px-4 py-2 border border-primary-light rounded focus:ring-2 focus:ring-primary DEFAULT" placeholder="Email Address" type="email" required />
+      <input class="w-full px-4 py-2 border border-primary-light rounded focus:ring-2 focus:ring-primary DEFAULT" placeholder="Phone Number (optional)" type="tel" />
+      <textarea class="w-full px-4 py-2 border border-primary-light rounded focus:ring-2 focus:ring-primary DEFAULT" placeholder="Tell us why you'd like to volunteer or how you'd like to help..." rows="4"></textarea>
+      <button type="submit" class="bg-primary-dark text-white hover:bg-primary DEFAULT py-2 px-6 rounded transition">Submit Interest</button>
     </form>
   </section>
 
   <!-- Footer -->
-  <footer class="bg-gradient-to-r from-pink-200 to-purple-300 py-6 text-center text-sm text-purple-800">
+  <footer class="bg-gradient-to-r from-primary-light via-background-DEFAULT to-accent-light py-6 text-center text-sm text-primary-dark">
     Powered by the Community, for the Cats © 2025 PAWS Watch
   </footer>
 
